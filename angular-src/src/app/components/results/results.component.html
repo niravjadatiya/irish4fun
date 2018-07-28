@@ -1,0 +1,12 @@
+<h2 class="page-header">Enter Your Results Here</h2>
+<form>
+    <div class="form-group">
+        <label for="result1">Drag N Drop Puzzle</label>
+        <input type="number" class="form-control" name="result1" id="puzzle1" [(ngModel)]="puzzle1">
+    </div>
+    <div class="form-group">
+        <label for="result2">Matching Pairs Puzzle</label>
+        <input type="number" class="form-control" name="result2" id="puzzle2" [(ngModel)]="puzzle2">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onClickAddResult()">Add</button>
+</form>

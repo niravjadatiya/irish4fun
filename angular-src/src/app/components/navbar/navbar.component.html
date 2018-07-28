@@ -1,0 +1,53 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="../../assets/logo.png" alt="logo" width="147" height="50" alt="Irish4Fun logo" />
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a [routerLink]="['/']">Home</a>
+                </li>
+            </ul>
+            <!-- if user logged in -->
+            <ul class="nav navbar-nav navbar-right" *ngIf="authService.loggedIn()">
+                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a [routerLink]="['/storybook']">Storybook</a>
+                    <!-- <a href="http://irish4fun.ie/storybook">Storybook</a> -->
+                </li>
+                <li *ngIf="environment.userData.userType === 'parent'" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a [routerLink]="['/results']">Results</a>
+                </li>
+                <li  *ngIf="environment.userData.userType === 'teacher'" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a [routerLink]="['/review']">Review</a>
+                </li>
+                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a [routerLink]="['/profile']">Profile</a>
+                </li>
+                <li>
+                    <a (click)="onLogoutClick()" href="#">Logout</a>
+                </li>
+            </ul>
+
+            <!-- if user not logged in -->
+            <ul class="nav navbar-nav navbar-right" *ngIf="!authService.loggedIn()">
+                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a [routerLink]="['/login']">Login</a>
+                </li>
+                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a [routerLink]="['/register']">Register</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>

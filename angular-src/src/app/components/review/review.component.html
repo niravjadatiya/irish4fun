@@ -1,0 +1,22 @@
+
+<h2>Results Review</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>User Email</th>
+        <th>Puzzle 1</th>
+        <th>Puzzle 2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let res of results">
+        <td>{{res.userId.name}} </td>
+        <td>{{res.userId.email}} </td>
+
+        <td>{{res.puzzle1}} </td>
+        <td>{{res.puzzle2}}</td>
+      </tr>
+    </tbody>
+  </table>
